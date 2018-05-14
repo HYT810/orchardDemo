@@ -1,0 +1,45 @@
+﻿
+@model HYT.NewsDemo.ViewModels.NewsListViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>新闻列表</title>
+</head>
+<body>
+    <div>
+        <table cellpadding="1" cellspacing="1" border="1">
+            <thead>
+                <tr>
+                    <td>
+                        新闻标题
+                    </td>
+                    <td>
+                        新闻内容
+                    </td>
+                    <td>
+                        新闻类型
+                    </td>
+                    <td>
+                        操作
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.NewsList)
+                {
+                    <tr>
+                        <td>@item.newsTitle</td>
+                        <td>@item.newsContent</td>
+                        <td>@item.newsCategory</td>
+                        <td>@Html.ActionLink("编辑", "EditView", new { id = item.id })|@Html.ActionLink("删除", "Delete", new { id = item.id })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>        
+        @Html.ActionLink("新增", "CreateView") 
+    </div>
+</body>
+</html>

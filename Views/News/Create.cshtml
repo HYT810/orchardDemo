@@ -1,0 +1,26 @@
+﻿
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("create", "news", FormMethod.Post))
+        {
+        <div>            
+            新闻标题 <input id="title" type="text" name="title" /><br />
+            新闻内容<input id="content" type="text" name="content" /><br />
+            @Html.AntiForgeryToken()
+            <input id="btnSave" type="submit" value="保存" />
+        </div>
+        }
+        </div>
+    </body>
+</html>
